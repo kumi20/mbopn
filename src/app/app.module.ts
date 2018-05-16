@@ -14,11 +14,13 @@ import { EventService } from './event.service';
 import { routerModule} from './app.routing';
 
 import { DashboardComponent} from './dashboard/dashboard.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
