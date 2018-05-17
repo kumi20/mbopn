@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ApiService {
 
-  uri = 'http://kumi20.webd.pl/api/cms/';
+  uri = 'http://kumi20.webd.pl/api/mbopn/';
  
   headers:Headers = new Headers;    
 
@@ -17,6 +17,17 @@ export class ApiService {
       this.headers.append("Content-Type", "application/json");
   }
 
+  get(uri){
+    return this._http.get(this.uri+uri).map(
+        response => response.json()
+    )
+  }
+
+  post(uri, json){
+      return this._http.post(this.uri+uri,json).map(
+          response => response.json()
+      )
+  }
 
 }
 

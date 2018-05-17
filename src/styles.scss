@@ -4,7 +4,7 @@ body{
 }
 
 .row{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .butony{
@@ -54,6 +54,10 @@ mdb-select > div > div.single {
 
 mdb-select mdb-select-dropdown .dropdown-content li > a, mdb-select mdb-select-dropdown .dropdown-content li > span {
     color: #292b2c;
+}
+
+mdb-select > div > div.single > div.value{
+    color: #ffffff;    
 }
 
 mdb-select > div > div.single > div.placeholder {
@@ -145,5 +149,28 @@ transition: 0s !important;
 }
 
 .search-container{
-    margin-top: 30px;
+    margin-top: 40px;
 }
+
+.input-form {
+    font-size: 13px !important;
+    vertical-align: middle;
+    border: none !important;
+    padding-left: 6px;
+}
+input {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    outline: none;
+    font-size: 1rem;
+    box-shadow: none;
+    transition-duration: 0s !important;
+    height: 1.9rem !important;
+    width: calc(100% - 6px);
+    box-sizing: content-box;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
