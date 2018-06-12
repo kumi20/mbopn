@@ -57,24 +57,25 @@ mdb-select mdb-select-dropdown .dropdown-content li > a, mdb-select mdb-select-d
 }
 
 mdb-select > div > div.single > div.value{
-    color: #ffffff;    
+    color: #212529;    
 }
 
 mdb-select > div > div.single > div.placeholder {
     line-height: normal;
-    color: #ffffff;
+    color: #212529;
 }
 
 mdb-select > div > div.single > div.toggle {
-    color: #ffffff;
+    color: #212529;
 }
 
 mdb-select {
     border: 1px solid #B8B8B8;
+    background-color: #ffffff;
     border-radius: 5px;
-    margin-top: 5px;
-    height: 1.9rem;
-    color: #ffffff;
+    margin-top: 10px;
+    height: 2.9rem;
+    color: #212529;
     .active {
         padding-bottom: 4px !important;
     }
@@ -88,15 +89,15 @@ mdb-select {
         border-bottom-width: 0px;
         height: 1.9rem;
         .value {
-            padding: 5px 8px !important;
+            padding: 10px 8px !important;
             border: none !important;
-            height: 1.9rem;
-            color: #ffffff;
+            height: 2.9rem;
+            color: #212529;
         }
         .placeholder {
-            padding: 5px 8px !important;
+            padding: 10px 8px !important;
             border: none !important;
-            height: 1.9rem;
+            height: 2.9rem;
         }
         .toggle {
             z-index: 2 !important;
@@ -120,12 +121,14 @@ mdb-select {
         }
     }
     .open-icon {
-        color:#ffffff;
+        color:#212529;
+         height: 0.9rem;
         transform: rotate(180deg) translateY(16px) !important;
         transition: 0.2s;
     }
     .closed-icon {
-        color:#ffffff;
+        color:#212529;
+         height: 0.9rem;
         transition: 0.2s;
     }
 }
