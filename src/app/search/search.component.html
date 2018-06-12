@@ -1,0 +1,78 @@
+<section id="search">
+   <div class="row">
+         <div class="col-md-6">
+             <div class="md-form">
+                <mdb-select class="select" [options]="category" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.category"></mdb-select>
+                <label class="active">Kategoria przedmiotów:</label>
+             </div>
+         </div>
+         <div class="col-md-6">
+             <div class="md-form">
+                 <mdb-select class="select" [options]="subject" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.subject"></mdb-select>
+                 <label class="active">Przedmiot:</label>
+             </div>
+         </div>
+     </div>  
+     
+    <div class="row">
+         <div class="col-md-6">
+             <div class="md-form">
+                <mdb-select class="select" #provinceSelect [options]="province" [filterEnabled]="true" placeholder="-- wybierz --" (selected)="selectedProvince($event)" [(ngModel)]="search.province"></mdb-select>
+                <label class="active">Województwo:</label>
+             </div>
+         </div>
+         <div class="col-md-6">
+             <div class="md-form">
+                 <mdb-select class="select" #countySelect [options]="county" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.county"></mdb-select>
+                 <label class="active">Powiat:</label>
+             </div>
+         </div>
+     </div>  
+     
+     <div class="row" *ngIf="!showMore">
+             <div class="col-md-12 text-center wow fadeInDown">
+                 <i class="fa fa-angle-down text-white" aria-hidden="true" (click)="showMoreSearch()"></i>
+             </div>
+      </div> 
+         
+     <div class="read-more" id="readMore">         
+         <div class="row ">
+             <div class="col-md-6">
+                 <div class="md-form">
+                     <input mdbActive type="text" id="city" class="form-control" [(ngModel)]="search.city">
+                     <label for="city">Miejscowość:</label>                   
+                 </div>
+             </div>
+             <div class="col-md-6">
+                 <div class="md-form">
+                     <mdb-select class="select" [options]="school" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.school"></mdb-select>
+                     <label class="active">Typ szkoły:</label>
+                 </div>
+             </div>
+         </div>
+         <div class="row ">
+             <div class="col-md-6">
+                 <div class="md-form">
+                     <mdb-select class="select" [options]="employmentDimension" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.employmentDimension"></mdb-select>
+                     <label class="active">Wymiar zatrudnienia:</label>
+                 </div>
+             </div>
+         </div>
+         <div class="col-md-12 text-center wow fadeInUp">
+             <i class="fa fa-angle-up text-white" aria-hidden="true" (click)="hideMoreSearch()"></i>
+         </div>
+     </div>
+     
+     <div class="row">
+       <button class="btn btn-search purple-gradient" (click)="searchOfert()">
+           <i class="fa fa-search" aria-hidden="true"></i>Szukaj
+       </button>
+<!--
+        <a class="btn-floating purple-gradient" (click)="searchOfert()"  mdbTooltip="Szukaj" placement="right">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+-->
+     </div> 
+</section>
+
+

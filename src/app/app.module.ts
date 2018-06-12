@@ -15,12 +15,16 @@ import { routerModule} from './app.routing';
 
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
+import { ListOfersComponent } from './list-ofers/list-ofers.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    SearchComponent
+    SearchComponent,
+    ListOfersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

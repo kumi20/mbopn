@@ -1,0 +1,39 @@
+.md-form label.active {
+    color: #ffffff;
+}
+
+.btn-floating{
+    margin-top:-20px;
+}
+
+.text-white{
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+.md-form label{
+    color:#ffffff;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea{
+    border-bottom: 1px solid #ffffff;
+    color:#ffffff;
+}
+
+.btn-search{
+    border-radius: 10px;
+    width:100%;
+    z-index: 1;
+}
+
+.fa-search{
+    margin-right: 10px;
+}
+
+.read-more{
+    opacity:0;
+    height: 0px;
+    -webkit-transition: all  1s; /* For Safari 3.1 to 6.0 */
+    transition: all  1s;
+}

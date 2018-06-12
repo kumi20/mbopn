@@ -1,0 +1,24 @@
+.footer{
+    background: #212f48;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    padding-top: 12px;
+}
+
+p{
+    a{
+        font-weight: bold;
+        color: #ffffff;
+    }
+}

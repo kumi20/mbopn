@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { ToastService } from './typescripts/pro'
-
-
 
 @Injectable()
 export class EventService {
+    
+  @Output() onSearchOfers: EventEmitter<any> = new EventEmitter<any>();    
 
   constructor(private toastrService: ToastService) {}
 
@@ -23,5 +23,9 @@ export class EventService {
 
   klepsydraStop(){
       document.getElementById('klepsydra').style.display = 'none';
+  }
+    
+  searchOfers(oferta){
+      this.onSearchOfers.emit(oferta);
   }    
 }
