@@ -2,13 +2,13 @@
    <div class="row">
          <div class="col-md-6">
              <div class="md-form">
-                <mdb-select class="select" [options]="category" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.category"></mdb-select>
+                <mdb-select class="select" [options]="category" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.category" (selected)="selectedSubject($event)"></mdb-select>
                 <label class="active">Kategoria przedmiotów:</label>
              </div>
          </div>
          <div class="col-md-6">
              <div class="md-form">
-                 <mdb-select class="select" [options]="subject" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.subject"></mdb-select>
+                 <mdb-select class="select" [options]="subject" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.subject" #subjectSelect></mdb-select>
                  <label class="active">Przedmiot:</label>
              </div>
          </div>
@@ -45,7 +45,7 @@
              </div>
              <div class="col-md-6">
                  <div class="md-form">
-                     <mdb-select class="select" [options]="school" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.school"></mdb-select>
+                     <mdb-select class="select" [options]="school" [filterEnabled]="true" placeholder="-- wybierz --" [(ngModel)]="search.school" #type></mdb-select>
                      <label class="active">Typ szkoły:</label>
                  </div>
              </div>

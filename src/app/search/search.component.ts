@@ -11,7 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent implements OnInit {
     
   @ViewChild('provinceSelect') provinceSelect;    
-  @ViewChild('countySelect') countySelect;      
+  @ViewChild('countySelect') countySelect;  
+  @ViewChild('type') type;    
+  @ViewChild('subjectSelect') subjectSelect;   
 
   province: any = [];  
   county: any = [];
@@ -28,14 +30,14 @@ export class SearchComponent implements OnInit {
       employmentDimension: ''
   }; 
   showMore: boolean = false;
-  employmentDimension = [{value: '', label: '-- wybierz --'}, {value: 1, label: 'wakat'}, {value: '2', label: 'zastępstwo'}];    
+  employmentDimension = [{value: '', label: '-- wybierz --'}, {value: 1, label: 'wakat'}, {value: 2, label: 'zastępstwo'}];    
     
     
   constructor(private CmsService: ApiService, private event: EventService, private route: ActivatedRoute, private _route: Router) { }
 
   ngOnInit() {
       this.event.klepsydraStart();
-      this.CmsService.get(`mbopn/getList.php`).subscribe(
+      this.CmsService.get(`mbopn/getListWojewodztwa.php`).subscribe(
         response =>{
             
             response.forEach(el=>{
@@ -49,7 +51,23 @@ export class SearchComponent implements OnInit {
             this.event.klepsydraStop();
         }
       )
+      
+      this.getListType();
   }
+    
+  getListType(){
+      this.CmsService.get(`mbopn/getListTyp.php`).subscribe(
+        response =>{
+            response.forEach(el=>{
+                this.school.push({value: el.id, label: el.nazwa});
+            }); 
+            this.type.updateOptionsList();
+        },
+        error =>{
+            this.event.wyswietlInfo('error', 'Błąd pobierania typów szkół');
+        }  
+      )
+  }    
     
   selectedProvince(event){
       this.county.length = 0;
@@ -84,5 +102,21 @@ export class SearchComponent implements OnInit {
         this.showMore = false;
         document.getElementById('readMore').style.opacity = '0';
         document.getElementById('readMore').style.height = '0px';
+    }
+    
+    selectedSubject(event){
+        this.subject.length = 0;
+        this.CmsService.get(`mbopn/getPrzedmioty.php?id=${event.value}`).subscribe(
+            response =>{
+                response.forEach(el=>{
+                    this.subject.push({value: el.id, label: el.nazwa});
+                });
+                this.subjectSelect.updateOptionsList();
+            },
+            error =>{
+                this.event.wyswietlInfo('error', 'Błąd pobierania przedmiotów')
+            }
+        )
+        
     }
 }
