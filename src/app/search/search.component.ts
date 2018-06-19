@@ -29,6 +29,7 @@ export class SearchComponent implements OnInit {
       school: '',
       employmentDimension: ''
   }; 
+  count: string = '';    
   showMore: boolean = false;
   employmentDimension = [{value: '', label: '-- wybierz --'}, {value: 1, label: 'wakat'}, {value: 2, label: 'zastępstwo'}];    
     
@@ -52,6 +53,10 @@ export class SearchComponent implements OnInit {
         }
       )
       
+      this.CmsService.get(`mbopn/countOfert.php`).subscribe(
+          response=>{
+              this.count = response[0].count;
+          });
       this.getListType();
   }
     
