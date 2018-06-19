@@ -8,11 +8,11 @@ import {SBItemComponent} from './sb-item';
 })
 export class SBItemHeadComponent {
 
-    constructor(private sbItem: SBItemComponent) {}
-    
-    toggleClick(event: any) {
-        event.preventDefault();
-        this.sbItem.collapsed = !this.sbItem.collapsed;
+  constructor(private sbItem: SBItemComponent) {}
 
-    }
+  toggleClick(event: any) {
+    event.preventDefault();
+    this.sbItem.collapsed = !this.sbItem.collapsed;
+    this.sbItem.toggle(this.sbItem.collapsed);
+  }
 }

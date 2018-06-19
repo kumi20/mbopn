@@ -1,4 +1,4 @@
-import {NgModule, Type} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {SqueezeBoxComponent} from './components/squeezebox';

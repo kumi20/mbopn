@@ -11,13 +11,13 @@
                     <th>Miejscowość</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let ofert of listOfers">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let ofert of listOfers" routerLink="/oferta/{{ofert.id}}">
+                        <td>{{ofert.czas}}</td>
+                        <td>{{ofert.nazwa}}</td>
+                        <td>{{ofert.tytul}}</td>
+                        <td>{{ofert.termin_dok}}</td>
+                        <td>{{ofert.wymiar}}</td>
+                        <td>{{ofert.miejscowosc}}</td>
                     </tr>
                     <tr *ngIf="listOfers.length===0">
                         <td colspan="6" class="text-center">
@@ -29,3 +29,6 @@
         </div>
     </div>
 </div>
+
+
+<br><br><br>

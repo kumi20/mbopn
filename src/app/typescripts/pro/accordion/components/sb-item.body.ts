@@ -1,4 +1,4 @@
-import {Component, ElementRef, Renderer, ViewChild} from '@angular/core';
+import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
   exportAs: 'sbItemBody',
@@ -7,22 +7,23 @@ import {Component, ElementRef, Renderer, ViewChild} from '@angular/core';
 })
 export class SBItemBodyComponent {
 
-    public height: String = '0';
+  public height = '0';
 
-    @ViewChild('body') bodyEl: ElementRef;
+  @ViewChild('body') bodyEl: ElementRef;
 
-    constructor(private renderer: Renderer) {}
-    
-    toggle(collapsed: boolean) {
-        var height: String = '0';
-        if (!collapsed) {
-            this.renderer.setElementStyle(this.bodyEl.nativeElement, 'height', 'auto');
-            height = this.bodyEl.nativeElement.offsetHeight + 'px';
-            this.renderer.setElementStyle(this.bodyEl.nativeElement, 'height', '0');
-        } 
-        setTimeout(() => this.height = height, 50);
+  constructor(private renderer: Renderer2) {}
+
+  toggle(collapsed: boolean) {
+    let height = '0';
+    if (!collapsed) {
+      this.renderer.setStyle(this.bodyEl.nativeElement, 'height', 'auto');
+      height = this.bodyEl.nativeElement.offsetHeight + 'px';
+      this.renderer.setStyle(this.bodyEl.nativeElement, 'height', '0');
     }
-    toggleAll() {
-        this.renderer.setElementStyle(this.bodyEl.nativeElement, 'height', 'auto');
-    }
+    setTimeout(() => this.renderer.setStyle(this.bodyEl.nativeElement, 'height', height), 50);
+  }
+  
+  toggleAll() {
+    this.renderer.setStyle(this.bodyEl.nativeElement, 'height', 'auto');
+  }
 }

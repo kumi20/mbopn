@@ -17,6 +17,7 @@ import { DashboardComponent} from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { ListOfersComponent } from './list-ofers/list-ofers.component';
 import { FooterComponent } from './footer/footer.component';
+import { OfersComponent } from './ofers/ofers.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     SearchComponent,
     ListOfersComponent,
-    FooterComponent
+    FooterComponent,
+    OfersComponent
   ],
   imports: [
     BrowserModule,

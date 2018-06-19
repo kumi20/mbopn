@@ -1,5 +1,6 @@
 import {Component, Input, ContentChildren, QueryList, forwardRef} from '@angular/core';
 import {SBItemComponent} from './sb-item';
+import {sbConfig} from './sb.config';
 
 @Component({
   exportAs: 'squeezebox',
@@ -12,8 +13,19 @@ export class SqueezeBoxComponent {
 
   @ContentChildren(forwardRef(() => SBItemComponent)) items: QueryList<SBItemComponent>;
 
-  constructor() {}
+  constructor() {
+    sbConfig.serviceInstance = this;
+  }
 
-
+  didItemToggled(item: SBItemComponent) {
+    // on not multiple, it will collpase the rest of items
+    if (!this.multiple) {
+      this.items.toArray().forEach(function(i) {
+        if (i !== item) {
+          i.applyToggle(true);
+        }
+      });
+    }
+  }
 
 }

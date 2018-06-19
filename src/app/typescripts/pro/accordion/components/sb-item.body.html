@@ -1,3 +1,5 @@
-<div id="sb-item" #body class="sb-item-body" [style.height]="height" (click)="toggleAll()">
-    <div><ng-content></ng-content></div>
+<div #body class="sb-item-body" [style.height]="height" (click)="toggleAll()">
+    <div class="card-body">
+    	<ng-content></ng-content>
+    </div>
 </div>

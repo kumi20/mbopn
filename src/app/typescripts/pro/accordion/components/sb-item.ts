@@ -1,30 +1,35 @@
-import {Component, ContentChild, Input, Inject, forwardRef, AfterViewInit} from '@angular/core';
+import {Component, ContentChild, Input, AfterViewInit} from '@angular/core';
 import {SBItemBodyComponent} from './sb-item.body';
-import {SqueezeBoxComponent} from './squeezebox';
+import {sbConfig} from './sb.config';
 
 @Component({
   exportAs: 'sbItem',
   selector: 'mdb-item',
   templateUrl: 'sb-item.html'
 })
-export class SBItemComponent {
+export class SBItemComponent implements AfterViewInit {
 
-  private squeezebox: SqueezeBoxComponent;
+  private squeezebox: any;
 
   @Input() public collapsed = true;
- 
 
-  constructor(@Inject(forwardRef(() => SqueezeBoxComponent)) squeezebox: SqueezeBoxComponent) {
-    this.squeezebox = squeezebox;
+  @ContentChild(SBItemBodyComponent) body: SBItemBodyComponent;
+
+  constructor() {
+    this.squeezebox = sbConfig.serviceInstance;
   }
 
   ngAfterViewInit() {
-  
+    this.body.toggle(this.collapsed);
   }
- 
+  toggle(collapsed: boolean) {
+    this.squeezebox.didItemToggled(this);
+    this.applyToggle(collapsed);
+  }
 
   applyToggle(collapsed: boolean) {
     this.collapsed = collapsed;
- 
+    this.body.toggle(collapsed);
   }
+
 }
