@@ -6,7 +6,10 @@ import { OfersComponent } from './ofers/ofers.component';
 // ROUTING
 const routesConfig: Routes = [
     { path: '', component: DashboardComponent},
-    { path: 'oferta/:id', component: OfersComponent}
+    { path: 'page/:page', component: DashboardComponent},
+    { path: 'page/:page/:category/:subject/:province/:county/:city/:school/:employmentDimension', component: DashboardComponent},
+    { path: ':category/:subject/:province/:county/:city/:school/:employmentDimension', component: DashboardComponent},
+    { path: 'oferta/:id', component: OfersComponent},
     
   ]
 

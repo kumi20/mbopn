@@ -11,7 +11,7 @@
                     <th>Miejscowość</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let ofert of listOfers" routerLink="/oferta/{{ofert.id}}">
+                    <tr *ngFor="let ofert of listOfers| paginate: { itemsPerPage: 10, currentPage:  page }" routerLink="/oferta/{{ofert.id}}">
                         <td>{{ofert.czas}}</td>
                         <td>{{ofert.nazwa}}</td>
                         <td>{{ofert.tytul}}</td>
@@ -27,6 +27,9 @@
                 </tbody>
             </table>
         </div>
+        
+        <pagination-controls (pageChange)="page = pageChanged($event)"  directionLinks="true"  previousLabel="Poprzednia"
+            nextLabel="Następna" autoHide="true" class="pagination" style="widtH:50%; margin: auto;"> </pagination-controls>
     </div>
 </div>
 

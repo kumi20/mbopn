@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2PaginationModule } from 'ng2-pagination';
 
 import { AppComponent } from './app.component';
 
@@ -35,6 +36,7 @@ import { OfersComponent } from './ofers/ofers.component';
     routerModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    Ng2PaginationModule,
     MDBBootstrapModule.forRoot(),
     MDBBootstrapModulePro.forRoot()
   ],

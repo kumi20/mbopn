@@ -31,12 +31,15 @@ export class SearchComponent implements OnInit {
   }; 
   count: string = '';    
   showMore: boolean = false;
-  employmentDimension = [{value: '', label: '-- wybierz --'}, {value: 1, label: 'wakat'}, {value: 2, label: 'zastępstwo'}];    
+  employmentDimension = [{value: '', label: '-- wybierz --'}, {value: 'Wakat', label: 'wakat'}, {value: 'zastępstwo', label: 'zastępstwo'}];    
     
     
-  constructor(private CmsService: ApiService, private event: EventService, private route: ActivatedRoute, private _route: Router) { }
+  constructor(private CmsService: ApiService, private event: EventService, private route: ActivatedRoute, private _route: Router) { 
+        this.event.countOferts.subscribe(count=> this.onSetCount(count));
+  }
 
   ngOnInit() {
+      
       this.event.klepsydraStart();
       this.CmsService.get(`mbopn/getListWojewodztwa.php`).subscribe(
         response =>{
@@ -46,6 +49,7 @@ export class SearchComponent implements OnInit {
             })
             this.provinceSelect.updateOptionsList();
             this.event.klepsydraStop();
+            this.search = this.search;
         },
         error =>{
             this.event.wyswietlInfo('error', 'Błąd pobierania województ');
@@ -53,10 +57,6 @@ export class SearchComponent implements OnInit {
         }
       )
       
-      this.CmsService.get(`mbopn/countOfert.php`).subscribe(
-          response=>{
-              this.count = response[0].count;
-          });
       this.getListType();
   }
     
@@ -94,7 +94,7 @@ export class SearchComponent implements OnInit {
   }    
 
     searchOfert(){
-        this.event.searchOfers(this.search);
+        this.event.searchOfers(this.search);       this._route.navigate(['/'+this.search.category+'/'+this.search.subject+'/'+this.search.province+'/'+this.search.county+'/'+this.search.city+'/'+this.search.school+'/'+this.search.employmentDimension]);
     }
     
     showMoreSearch(){
@@ -123,5 +123,9 @@ export class SearchComponent implements OnInit {
             }
         )
         
+    }
+    
+    onSetCount(count){
+        this.count = count;
     }
 }

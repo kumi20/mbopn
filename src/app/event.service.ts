@@ -5,6 +5,7 @@ import { ToastService } from './typescripts/pro'
 export class EventService {
     
   @Output() onSearchOfers: EventEmitter<any> = new EventEmitter<any>();    
+  @Output() countOferts: EventWmitter<any> = new EventEmitter<any>();    
 
   constructor(private toastrService: ToastService) {}
 
@@ -27,5 +28,9 @@ export class EventService {
     
   searchOfers(oferta){
       this.onSearchOfers.emit(oferta);
-  }    
+  }   
+    
+  setCountOferts(count){
+      this.countOferts.emit(count);
+  }
 }
